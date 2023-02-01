@@ -1,7 +1,4 @@
-﻿
-@{
-    Layout = null;
-}
+﻿@model slnBelgradoAriana.Models.Receta
 
 <!DOCTYPE html>
 
@@ -11,5 +8,33 @@
     <title>Create</title>
 </head>
 <body>
+    <h2>Ver Detalle</h2>
+    @Html.ActionLink("Crear Receta ","Index","Receta")
+
+    <p>
+        @Html.DisplayNameFor(model=>model.Categoria)
+        @Html.DisplayFor(model=>model.Categoria)
+    </p>
+    <p>
+        @Html.DisplayNameFor(model=>model.Ingredientes)
+        @Html.DisplayFor(model=>model.Ingredientes)
+    </p>
+    <p>
+        @Html.DisplayNameFor(model=>model.Autor)
+        @Html.DisplayFor(model=>model.Autor)
+    </p>
+    <p>
+        @Html.DisplayNameFor(model=>model.Apellido)
+        @Html.DisplayFor(model=>model.Apellido)
+    </p>
+    <p>
+        @Html.DisplayNameFor(model=>model.Email)
+        @Html.DisplayFor(model=>model.Email)
+    </p>
+    <p>
+        @Html.DisplayNameFor(model=>model.Edad)
+        @Html.DisplayFor(model=>model.Edad)
+    </p>
+
 </body>
 </html>
