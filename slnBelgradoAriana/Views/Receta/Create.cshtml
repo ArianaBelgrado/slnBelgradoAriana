@@ -1,40 +1,77 @@
 ﻿@model slnBelgradoAriana.Models.Receta
 
-<!DOCTYPE html>
+@section Aside {
+    <h1>Bienvenida</h1>
+    <img src="~/img/1.jpg" alt="foto 1" />
+    <img src="~/img/2webp.jpg" alt="foto 2" />
+    <img src="~/img/3.jpg" alt="foto 3" />
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
-</head>
-<body>
-    <h2>Ver Detalle</h2>
-    @Html.ActionLink("Crear Receta ","Index","Receta")
+@{
+    ViewData["Title"] = "Creacion de Receta";
+}
 
-    <p>
-        @Html.DisplayNameFor(model=>model.Categoria)
-        @Html.DisplayFor(model=>model.Categoria)
-    </p>
-    <p>
-        @Html.DisplayNameFor(model=>model.Ingredientes)
-        @Html.DisplayFor(model=>model.Ingredientes)
-    </p>
-    <p>
-        @Html.DisplayNameFor(model=>model.Autor)
-        @Html.DisplayFor(model=>model.Autor)
-    </p>
-    <p>
-        @Html.DisplayNameFor(model=>model.Apellido)
-        @Html.DisplayFor(model=>model.Apellido)
-    </p>
-    <p>
-        @Html.DisplayNameFor(model=>model.Email)
-        @Html.DisplayFor(model=>model.Email)
-    </p>
-    <p>
-        @Html.DisplayNameFor(model=>model.Edad)
-        @Html.DisplayFor(model=>model.Edad)
-    </p>
+    <h2>Crear Detalle</h2>
+@using (Html.BeginForm("Create", "Receta", FormMethod.Post))
+{
 
-</body>
-</html>
+                    <div>
+
+        @Html.LabelFor(model => model.Titulo)
+        @Html.TextBoxFor(model => model.Titulo)
+        @Html.ValidationMessageFor(model => model.Titulo)
+
+                    </div>
+                    <div>
+
+        @Html.LabelFor(model => model.Categoria)
+        @Html.TextBoxFor(model => model.Categoria)
+        @Html.ValidationMessageFor(model => model.Categoria)
+
+                    </div>
+                    <div>
+
+        @Html.LabelFor(model => model.Ingredientes)
+        @Html.TextBoxFor(model => model.Ingredientes)
+        @Html.ValidationMessageFor(model => model.Ingredientes)
+
+                    </div>
+    <div>
+
+        @Html.LabelFor(model => model.Instrucciones)
+        @Html.TextBoxFor(model => model.Instrucciones)
+        @Html.ValidationMessageFor(model => model.Instrucciones)
+
+    </div>
+    <div>
+
+        @Html.LabelFor(model => model.Autor)
+        @Html.TextBoxFor(model => model.Autor)
+        @Html.ValidationMessageFor(model => model.Autor)
+
+    </div>    <div>
+
+        @Html.LabelFor(model => model.Apellido)
+        @Html.TextBoxFor(model => model.Apellido)
+        @Html.ValidationMessageFor(model => model.Apellido)
+
+    </div><div>
+
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email)
+        @Html.ValidationMessageFor(model => model.Email)
+
+    </div><div>
+
+        @Html.LabelFor(model => model.Edad)
+        @Html.TextBoxFor(model => model.Edad)
+        @Html.ValidationMessageFor(model => model.Edad)
+
+    </div>
+
+                    <input type="submit" value="Editar" action="Editar" />
+
+    @Html.ActionLink("Ir al detalle", "Index", "Receta")
+
+}
+

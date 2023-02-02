@@ -1,13 +1,18 @@
 ﻿@model IEnumerable<slnBelgradoAriana.Models.Receta>
 
-<!DOCTYPE html>
+@section Aside {
+    <h1>Bienvenida</h1>
+    <img src="~/img/1.jpg" alt="foto 1" />
+    <img src="~/img/2webp.jpg" alt="foto 2" />
+    <img src="~/img/3.jpg" alt="foto 3" />
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
+@{
+    ViewData["Title"] = "Inicio de Receta";
+}
+
+@Html.ActionLink("Crear Receta ","Create","Receta")
+
         <table>
         <tr>
             <th>@Html.DisplayNameFor(model => model.Categoria)</th>
@@ -18,10 +23,16 @@
             <th>@Html.DisplayNameFor(model => model.Email)</th>
             <th>@Html.DisplayNameFor(model => model.Edad)</th>
             <th></th>
+
         </tr>
-        @foreach (var item in Model)
+
+
+    @foreach (var item in Model)
         {
             <tr>
+                <td>
+                    @Html.ActionLink(item.Titulo,"Details", "Receta", new{id = item.Id})
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Categoria)
                 </td>
@@ -32,23 +43,22 @@
                     @Html.DisplayFor(modelItem => item.Instrucciones)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Autor)
+                @Html.ActionLink(item.Autor,"IndexByAutor", "Receta", new{autor = item.Autor})
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Apellido)
+                @Html.ActionLink(item.Apellido,"IndexByApellido", "Receta", new{apellido = item.Apellido})
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
-                <td><
-                @Html.DisplayFor(modelItem => item.Edad)/td>
+                <td>
+            @Html.DisplayFor(modelItem => item.Edad)
+            </td>
 
                 <td>
-                    @Html.ActionLink("Detalle","Details", "Medico", new{id=item.RecetaId})
+                    @Html.ActionLink("Detalle","Details", "Receta", new{id=item.Id})
                 <td />
             </tr>
         }
-        </table>
 
-</body>
-</html>
+        </table>

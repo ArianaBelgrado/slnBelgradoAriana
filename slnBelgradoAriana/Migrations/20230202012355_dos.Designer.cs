@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using slnBelgradoAriana.Data;
 
 namespace slnBelgradoAriana.Migrations
 {
     [DbContext(typeof(DbRecetasMVC))]
-    partial class DbRecetasMVCModelSnapshot : ModelSnapshot
+    [Migration("20230202012355_dos")]
+    partial class dos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,21 +22,18 @@ namespace slnBelgradoAriana.Migrations
 
             modelBuilder.Entity("slnBelgradoAriana.Models.Receta", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("RecetaId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Apellido")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Autor")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Categoria")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Edad")
@@ -45,18 +44,12 @@ namespace slnBelgradoAriana.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ingredientes")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Instrucciones")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Titulo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
+                    b.HasKey("RecetaId");
 
                     b.ToTable("Receta");
                 });

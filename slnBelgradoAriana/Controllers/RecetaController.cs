@@ -15,15 +15,34 @@ namespace slnBelgradoAriana.Controllers
         }
         public IActionResult Index()
         {
-            var aula = context.Recetas.ToList();
-            return View();
+            var receta = context.Recetas.ToList();
+            return View(receta);
         }
         [HttpGet]
         public ActionResult Create()
         {
             Receta receta = new Receta();
-            return View("Register", receta);
+            return View("Create", receta);
         }
+
+        [HttpGet]
+        public IActionResult IndexByAutor(string autor)
+        {
+            var recetas = (from e in context.Recetas
+                           where e.Autor == autor
+                           select e).ToList();
+            return View("Index", recetas);
+        }
+
+        [HttpGet]
+        public IActionResult IndexByApellido(string apellido)
+        {
+            var recetas = (from e in context.Recetas
+                           where e.Apellido == apellido
+                           select e).ToList();
+            return View("Index", recetas);
+        }
+
 
         [HttpPost]
         public ActionResult Create(Receta receta)
@@ -47,7 +66,7 @@ namespace slnBelgradoAriana.Controllers
             }
             else
             {
-                return View("detalle", receta);
+                return View("Details", receta);
             }
         }
         private Receta TraerUna(int id)

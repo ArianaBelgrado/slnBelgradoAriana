@@ -1,15 +1,32 @@
-﻿
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>_Layout</title>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/css/site.css" /> 
 </head>
 <body>
+    <header>
+        <h1>Mis Recetas</h1>
+    </header>
+    <nav>
+        @Html.ActionLink("Inicio","Index","Home")
+        @Html.ActionLink("Receta","Index","Receta")
+    </nav>
+
+    <main>
+    <div>
+        @RenderBody()
+    </div>
+    </main>
+
+    <aside>
+        @RenderSection("Aside") 
+    </aside>
+
+   <footer>
+       <label>misrecetas@web.com</label>
+   </footer>
 </body>
 </html>

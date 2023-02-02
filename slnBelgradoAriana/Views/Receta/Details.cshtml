@@ -1,13 +1,15 @@
 ﻿@model slnBelgradoAriana.Models.Receta
 
-<!DOCTYPE html>
+@section Aside {
+    <h1>Bienvenida</h1>
+    <img src="~/img/1.jpg" alt="foto 1" />
+    <img src="~/img/2webp.jpg" alt="foto 2" />
+    <img src="~/img/3.jpg" alt="foto 3" />
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
+@{
+    ViewData["Title"] = "Detalle de Receta";
+}
 
     <h2>Ver Detalle</h2>
     @Html.ActionLink("Volver crear Receta ","Index","Receta")
@@ -37,5 +39,3 @@
         @Html.DisplayFor(model=>model.Edad)
     </p>
 
-</body>
-</html>
